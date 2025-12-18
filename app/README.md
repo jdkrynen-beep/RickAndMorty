@@ -1,4 +1,4 @@
-# 🛸 Rick and Morty - Application Android
+#  Rick and Morty - Application Android
 
 Application Android native développée dans le cadre du **TP B3 EPSI** - Année 2024/2025.
 
@@ -56,7 +56,7 @@ Une application mobile moderne affichant les personnages de la série *Rick and 
 
 ---
 
-## 📂 Structure du projet
+##  Structure du projet
 ```
 RickAndMorty/
 ├── app/
@@ -253,18 +253,6 @@ implementation("androidx.compose.material3:material3")
 - Attendre quelques secondes (chargement asynchrone)
 
 
-### Améliorations techniques
-
-- 🧪 **Tests unitaires** : Couvrir le ViewModel et les use cases
-- 🧪 **Tests UI** : Automatiser les tests d'interface
-- 🗄️ **Cache local** : Sauvegarder les données avec Room pour mode hors ligne
-- 🔄 **Refresh pull-to-refresh** : Actualiser les données en tirant vers le bas
-- 🌐 **Multi-langues** : Internationalisation (i18n)
-- ♿ **Accessibilité** : Améliorer le support TalkBack et contraste
-- 🚀 **CI/CD** : Pipeline automatisé avec GitHub Actions
-
----
-
 ## Auteur
 
 **Jean Daniel Krynen**  
@@ -309,8 +297,7 @@ L'API Rick and Morty est fournie gracieusement par [rickandmortyapi.com](https:/
 
 ---
 
-<div align="center">
-  Made with 💚 for EPSI B3 - 2024/2025
+<div >
 
  Merci pour votre lecture !
 </div>
