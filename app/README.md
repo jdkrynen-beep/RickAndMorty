@@ -28,7 +28,7 @@ Une application mobile moderne affichant les personnages de la série *Rick and 
 
 ---
 
-## 🛠 Technologies utilisées
+## Technologies utilisées
 
 ### Langage et frameworks
 
@@ -228,6 +228,13 @@ implementation(platform("androidx.compose:compose-bom:2024.10.00"))
 implementation("androidx.compose.ui:ui")
 implementation("androidx.compose.material3:material3")
 ```
+
+---
+## Gestion des erreurs
+La gestion des erreurs est implémentée avec un pattern MVVM et des états sealed.
+Le ViewModel capture toutes les exceptions réseau dans un bloc try/catch, puis met à jour l'état UI en conséquence (Loading, Success ou Error).
+L'interface affiche automatiquement un écran d'erreur avec un message explicite et une icône visuelle si la récupération des données échoue.
+J'ai testé en mode avion pour simuler une panne réseau.
 
 ---
 
