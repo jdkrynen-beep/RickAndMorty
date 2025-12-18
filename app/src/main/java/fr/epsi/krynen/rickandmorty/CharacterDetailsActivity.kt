@@ -15,6 +15,9 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.Arrangement
 
 class CharacterDetailsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +47,7 @@ class CharacterDetailsActivity : ComponentActivity() {
         )
 
         setContent {
-            MaterialTheme {
+            RickAndMortyTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -106,56 +109,90 @@ fun CharacterDetailsContent(character: Character) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Image du personnage
-        AsyncImage(
-            model = character.image,
-            contentDescription = "Image de ${character.name}",
+        // Image du personnage dans une Card avec ombre
+        Card(
             modifier = Modifier
-                .size(200.dp)
-                .padding(bottom = 16.dp)
-        )
-
-
-        DetailItem(label = "Statut", value = character.status)
-        DetailItem(label = "Espèce", value = character.species)
-
-        if (character.type.isNotEmpty()) {
-            DetailItem(label = "Type", value = character.type)
+                .size(250.dp)
+                .padding(bottom = 24.dp),
+            elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+        ) {
+            AsyncImage(
+                model = character.image,
+                contentDescription = "Image de ${character.name}",
+                modifier = Modifier.fillMaxSize()
+            )
         }
 
-        DetailItem(label = "Genre", value = character.gender)
-        DetailItem(label = "Origine", value = character.origin.name)
-        DetailItem(label = "Localisation", value = character.location.name)
+        // Section Informations de base
+        Text(
+            text = "Informations",
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        )
+
+        // Disposition en grille 2x2 avec Row et Column
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                DetailCard(label = "Statut", value = character.status)
+                DetailCard(label = "Genre", value = character.gender)
+            }
+            Column(modifier = Modifier.weight(1f)) {
+                DetailCard(label = "Espèce", value = character.species)
+                if (character.type.isNotEmpty()) {
+                    DetailCard(label = "Type", value = character.type)
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Section Localisation
+        Text(
+            text = "Localisation",
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        )
+
+        DetailCard(label = "Origine", value = character.origin.name, fullWidth = true)
+        DetailCard(label = "Localisation actuelle", value = character.location.name, fullWidth = true)
     }
 }
 
 @Composable
-fun DetailItem(label: String, value: String) {
+fun DetailCard(label: String, value: String, fullWidth: Boolean = false) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
+            .then(if (fullWidth) Modifier.fillMaxWidth() else Modifier)
             .padding(vertical = 4.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
-        )
+            containerColor = MaterialTheme.colorScheme.secondaryContainer
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
+        Column(
+            modifier = Modifier.padding(12.dp)
         ) {
             Text(
-                text = "$label : ",
-                style = MaterialTheme.typography.titleSmall,
-                modifier = Modifier.weight(0.4f)
+                text = label,
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f)
             )
+            Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = value,
                 style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.weight(0.6f)
+                color = MaterialTheme.colorScheme.onSecondaryContainer
             )
         }
     }
