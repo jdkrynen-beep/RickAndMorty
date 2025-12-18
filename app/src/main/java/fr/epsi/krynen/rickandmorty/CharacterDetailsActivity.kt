@@ -34,13 +34,13 @@ class CharacterDetailsActivity : ComponentActivity() {
         val character = Character(
             id = characterId,
             name = characterName,
-            imageUrl = characterImage,
+            image = characterImage,
             status = characterStatus,
             species = characterSpecies,
             type = characterType,
             gender = characterGender,
-            origin = characterOrigin,
-            location = characterLocation
+            origin = Origin(name = characterOrigin),
+            location = Location(name = characterLocation)
         )
 
         setContent {
@@ -111,14 +111,13 @@ fun CharacterDetailsContent(character: Character) {
     ) {
         // Image du personnage
         AsyncImage(
-            model = character.imageUrl,
+            model = character.image,
             contentDescription = "Image de ${character.name}",
             modifier = Modifier
                 .size(200.dp)
                 .padding(bottom = 16.dp)
         )
 
-        // On retire le nom d'ici car il est maintenant dans la toolbar
 
         DetailItem(label = "Statut", value = character.status)
         DetailItem(label = "Espèce", value = character.species)
@@ -128,8 +127,8 @@ fun CharacterDetailsContent(character: Character) {
         }
 
         DetailItem(label = "Genre", value = character.gender)
-        DetailItem(label = "Origine", value = character.origin)
-        DetailItem(label = "Localisation", value = character.location)
+        DetailItem(label = "Origine", value = character.origin.name)
+        DetailItem(label = "Localisation", value = character.location.name)
     }
 }
 
