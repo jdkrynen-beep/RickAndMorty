@@ -1,6 +1,6 @@
 #  Rick and Morty - Application Android
 
-Application Android native développée dans le cadre du **TP B3 EPSI** - Année 2024/2025.
+Application Android native développée dans le cadre du **TP B3 EPSI** - Année 2025/2026.
 
 Une application mobile moderne affichant les personnages de la série *Rick and Morty* en utilisant l'API publique officielle.
 
