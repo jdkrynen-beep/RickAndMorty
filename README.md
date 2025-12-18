@@ -19,7 +19,7 @@ Une application mobile moderne affichant les personnages de la série *Rick and 
 ###  Interface utilisateur
 
 - **Material Design 3** : Interface moderne et épurée
-- **Thème personnalisé** : Couleurs inspirées de Rick and Morty (vert portail, bleu, jaune
+- **Thème personnalisé** : Couleurs inspirées de Rick and Morty (vert portail, bleu, jaune)
 - **Navigation fluide** : Transitions entre les écrans avec bouton retour
 - **Images circulaires** : Avatars stylés avec ombres portées
 - **Badges de statut** : Indicateurs colorés (vert pour "Alive", rouge pour "Dead")
