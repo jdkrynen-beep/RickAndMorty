@@ -1,11 +1,5 @@
 # 🛸 Rick and Morty - Application Android
 
-<div align="center">
-  <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick Sanchez" width="150"/>
-  <img src="https://rickandmortyapi.com/api/character/avatar/2.jpeg" alt="Morty Smith" width="150"/>
-  <img src="https://rickandmortyapi.com/api/character/avatar/3.jpeg" alt="Summer Smith" width="150"/>
-</div>
-
 Application Android native développée dans le cadre du **TP B3 EPSI** - Année 2024/2025.
 
 Une application mobile moderne affichant les personnages de la série *Rick and Morty* en utilisant l'API publique officielle.
