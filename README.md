@@ -28,7 +28,7 @@ Une application mobile moderne affichant les personnages de la série *Rick and 
 
 ---
 
-## 🛠 Technologies utilisées
+## Technologies utilisées
 
 ### Langage et frameworks
 
